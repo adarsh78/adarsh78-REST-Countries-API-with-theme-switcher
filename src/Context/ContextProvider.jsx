@@ -9,8 +9,6 @@ const ContextProvider = ({ children }) => {
     return savedTheme ? savedTheme : "light";
   });
 
-  const [numCode, setNumCode] = useState("");
-
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
@@ -22,7 +20,7 @@ const ContextProvider = ({ children }) => {
   return (
     <div>
       <AppContext.Provider
-        value={{ theme, toggleTheme, data, numCode, setNumCode }}
+        value={{ theme, toggleTheme, data }}
       >
         {children}
       </AppContext.Provider>

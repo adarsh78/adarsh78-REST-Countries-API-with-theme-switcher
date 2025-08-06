@@ -15,8 +15,8 @@ import Detailpage from "./Pages/Detailpage.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="" element={<Homepage />}></Route>
-      <Route path="/detailPage" element={<Detailpage />}></Route>
+      <Route path="" element={<Homepage />} />
+      <Route path="/DetailPage/:numCode" element={<Detailpage />} />
     </Route>
   )
 );

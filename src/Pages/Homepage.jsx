@@ -1,12 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { AppContext } from "../Context/ContextProvider";
 import { FaAngleDown } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const Homepage = () => {
+const Homepage = memo(() => {
   const navigate = useNavigate();
-  const { theme, data, setNumCode } = useContext(AppContext);
+  const { theme, data} = useContext(AppContext);
+  console.log(data)
 
   const [searchInput, setSearchInput] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -15,6 +16,7 @@ const Homepage = () => {
   // Filter based on Country Search and region
   const filteredCountry = data.filter((country) => {
     const searchedCountry = country.name.toLowerCase().includes(searchInput.toLowerCase());
+    //If selectedRegion is empty (no region selected), matchedRegion is always true (so all regions are included).
     const matchedRegion = selectedRegion ? country.region.toLowerCase() === selectedRegion.toLowerCase() : true;
     return searchedCountry && matchedRegion;
   });
@@ -27,8 +29,7 @@ const Homepage = () => {
   }
 
   const handleCountryClick = (numericCode) => {
-    navigate("/Detailpage");
-    setNumCode(numericCode)
+    navigate(`/Detailpage/${numericCode}`);
   }
 
 
@@ -122,6 +123,6 @@ const Homepage = () => {
       </div>
     </>
   );
-};
+});
 
 export default Homepage;

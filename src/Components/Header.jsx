@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React, { memo, useContext, useMemo } from "react";
 import { AppContext } from "../Context/ContextProvider";
 import { IoMoonOutline } from "react-icons/io5";
 import { IoMoon } from "react-icons/io5";
 
-const Header = () => {
+const Header = memo(() => {
   const { theme, toggleTheme, data } = useContext(AppContext);
-  
-  console.log("data in header: ", data)
+  console.log(data);
 
   return (
     <>
@@ -19,7 +18,7 @@ const Header = () => {
       >
         <div className="flex justify-between items-center px-[1rem] py-[2rem]">
           <h1 className="font-bold">Where in the world?</h1>
-          <button onClick={toggleTheme} className="flex items-center gap-2">
+          <button onClick={toggleTheme} className="flex items-center gap-2 cursor-pointer">
             {theme === "light" ? <IoMoonOutline /> : <IoMoon />}
             Dark Mode
           </button>
@@ -27,6 +26,6 @@ const Header = () => {
       </div>
     </>
   );
-};
+});
 
 export default Header;
