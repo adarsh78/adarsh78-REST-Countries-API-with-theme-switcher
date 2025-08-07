@@ -1,4 +1,4 @@
-import React, { memo, useContext, useState } from "react";
+import React, { memo, useContext, useEffect, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { AppContext } from "../Context/ContextProvider";
 import { FaAngleDown } from "react-icons/fa";
@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const Homepage = memo(() => {
   const navigate = useNavigate();
-  const { theme, data} = useContext(AppContext);
-  console.log(data)
-
+  const { theme, data } = useContext(AppContext);
   const [searchInput, setSearchInput] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+
 
   // Filter based on Country Search and region
   const filteredCountry = data.filter((country) => {
@@ -35,13 +35,15 @@ const Homepage = memo(() => {
 
   return (
     <>
-      <div className={`px-5 pt-9 pb-[5rem] w-[100%]`}>
+      <div className={`px-5 lg:px-[5rem] pt-9 pb-[5rem] w-[100%]`}>
+
+        <div className="flex flex-col md:flex-row lg:flex-row lg:flex-wrap md:flex-wrap gap-[3.5rem] lg:gap-0 justify-between lg:items-center mt-3">
         <div
           className={`${
             theme === "dark"
               ? "bg-[hsl(209,23%,22%)] text-[hsl(0,100%,100%)] placeholder-[hsl(0,100%,100%)]"
               : "bg-[hsl(0,100%,100%)] text-[hsl(200,15%,8%)] placeholder-[hsl(200,15%,8%)]"
-          } px-8 py-4 rounded-md flex items-center font-medium`}
+          } px-8 py-4 rounded-md flex items-center font-medium sm:w-full lg:w-[35rem]`}
         >
           <IoMdSearch size={24} />
           <input
@@ -54,7 +56,7 @@ const Homepage = memo(() => {
         </div>
 
         <div
-          className={`relative w-[185px] mt-[3.5rem] text-[14px] font-medium`}
+          className={`relative w-[185px] text-[14px] font-medium`}
         >
           <button
           onClick={() => setIsOpen(!isOpen)}
@@ -87,8 +89,9 @@ const Homepage = memo(() => {
           </ul>
           )}
         </div>
+        </div>
 
-        <div className="mt-[3rem] flex flex-col gap-[3.5rem] w-[280px] m-auto">
+        <div className="mt-[3rem] flex flex-col md:flex-row lg:flex-row flex-wrap gap-[4rem] sm:w-[280px] lg:w-[1300px] m-auto">
           {filteredCountry.map((da) => {
             return (
               <div key={da.numericCode} onClick={() => handleCountryClick(da.numericCode)}>
@@ -97,9 +100,9 @@ const Homepage = memo(() => {
                     theme === "dark"
                       ? "bg-[hsl(209,23%,22%)] text-[hsl(0,100%,100%)]"
                       : "bg-[hsl(0,100%,100%)] text-[hsl(200,15%,8%)]"
-                  } rounded-md `}
+                  } rounded-md lg:w-[17rem]`}
                 >
-                  <img src={da?.flag} alt={da?.name} className="rounded-t-md" />
+                  <img src={da?.flag} alt={da?.name} className="rounded-t-md w-full object-cover h-[15rem] md:h-[11rem] lg:w-[25rem]" />
                   <div className="px-8 pb-[3.2rem] pt-[1.8rem]">
                     <h2 className="font-bold text-[1.8rem] mb-4">{da?.name}</h2>
                     <p className="font-bold text-[1.2rem] mb-1">
