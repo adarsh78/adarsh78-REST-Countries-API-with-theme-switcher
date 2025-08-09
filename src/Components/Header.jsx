@@ -16,7 +16,7 @@ const Header = memo(() => {
         } shadow`}
       >
         <div className="flex justify-between items-center px-[1rem] md:px-[5rem] py-[2rem]">
-          <h1 className="font-bold">Where in the world?</h1>
+          <header className="font-bold md:text-[1.5rem]">Where in the world?</header>
           <button onClick={toggleTheme} className="flex items-center gap-2 cursor-pointer">
             {theme === "light" ? <IoMoonOutline /> : <IoMoon />}
             Dark Mode
