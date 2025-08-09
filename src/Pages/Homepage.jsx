@@ -50,6 +50,7 @@ const Homepage = memo(() => {
             className="ml-5 focus:outline-none"
             type="text"
             placeholder="Search for a country..."
+            aria-label="Search for a country" 
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
