@@ -43,7 +43,7 @@ const Homepage = memo(() => {
             theme === "dark"
               ? "bg-[hsl(209,23%,22%)] text-[hsl(0,100%,100%)] placeholder-[hsl(0,100%,100%)]"
               : "bg-[hsl(0,100%,100%)] text-[hsl(200,15%,8%)] placeholder-[hsl(200,15%,8%)]"
-          } px-8 py-4 rounded-md flex items-center font-medium sm:w-full lg:w-[35rem]`}
+          } px-8 py-4 rounded-md flex items-center font-medium sm:w-full lg:w-[35rem] shadow`}
         >
           <IoMdSearch size={24} />
           <input
@@ -56,7 +56,7 @@ const Homepage = memo(() => {
         </div>
 
         <div
-          className={`relative w-[185px] text-[14px] font-medium`}
+          className={`relative w-[185px] text-[14px] font-medium shadow`}
         >
           <button
           onClick={() => setIsOpen(!isOpen)}
@@ -75,7 +75,7 @@ const Homepage = memo(() => {
               theme === "dark"
                 ? "bg-[hsl(209,23%,22%)] text-[hsl(0,100%,100%)]"
                 : "bg-[hsl(0,100%,100%)] text-[hsl(200,15%,8%)]"
-            } rounded-md p-4 absolute mt-1 w-full flex flex-col gap-2`}
+            } rounded-md p-4 absolute mt-1 w-full flex flex-col gap-2 shadow`}
           >
             {regions.map((region) => (
               <li 
@@ -100,7 +100,7 @@ const Homepage = memo(() => {
                     theme === "dark"
                       ? "bg-[hsl(209,23%,22%)] text-[hsl(0,100%,100%)]"
                       : "bg-[hsl(0,100%,100%)] text-[hsl(200,15%,8%)]"
-                  } rounded-md lg:w-[17rem]`}
+                  } rounded-md lg:w-[17rem] shadow`}
                 >
                   <img src={da?.flag} alt={da?.name} className="rounded-t-md w-full object-cover h-[15rem] md:h-[11rem] lg:w-[25rem]" />
                   <div className="px-8 pb-[3.2rem] pt-[1.8rem]">

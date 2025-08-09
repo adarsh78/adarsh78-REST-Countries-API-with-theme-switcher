@@ -37,7 +37,7 @@ const Detailpage = () => {
   return (
     <>
       <div
-        className={`px-5 lg:px-[5rem] pt-9 pb-[5rem] w-[100%] ${
+        className={`px-5 lg:px-[5rem] pt-9 pb-[5rem] w-[100%] h-auto ${
           theme === "dark"
             ? "text-[hsl(0,100%,100%)]"
             : "text-[hsl(200,15%,8%)]"
@@ -49,23 +49,23 @@ const Detailpage = () => {
             theme === "dark"
               ? "bg-[hsl(209,23%,22%)] text-[hsl(0,100%,100%)]"
               : "bg-[hsl(0,100%,100%)] text-[hsl(200,15%,8%)]"
-          } flex justify-center items-center gap-2 px-6 py-1 rounded-[2px] mb-[4.5rem] cursor-pointer`}
+          } flex justify-center items-center gap-2 px-6 py-1 rounded-[2px] mb-[4.5rem] cursor-pointer shadow`}
         >
           {" "}
           <BsArrowLeft /> Back
         </button>
 
         <div className="md:flex md:justify-start md:gap-[10rem]">
-          <div>
+          <div className="w-full max-w-[50rem] aspect-[16/10] mx-auto overflow-hidden md:max-w-[40rem] shadow">
             <img
               src={individualCountry[0]?.flag}
               alt={individualCountry[0]?.name}
-              className="h-60 w-full md:h-120"
+              className="w-full h-full object-cover"
             />
           </div>
 
-          <div className="bg-red-600 md:text-sm">
-            <div className="md:flex md:justify-center md:items-center md:gap-[5rem]">
+          <div className=" md:w-[50rem] md:h-[30rem] md:text-sm">
+            <div className="md:flex md:justify-start md:items-center md:gap-[5rem] md:text-left">
               <div>
                 <h2 className="mt-[2.5rem] text-[1.5rem] font-bold">
                   {individualCountry[0]?.name}
@@ -109,7 +109,7 @@ const Detailpage = () => {
               </div>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-5 w-full">
               <p className="text-[1.2rem]">Border Countries:</p>
               <div className="flex gap-2 flex-wrap mt-5">
                 {borders?.map((countries) =>
@@ -121,7 +121,7 @@ const Detailpage = () => {
                         theme === "dark"
                           ? "bg-[hsl(209,23%,22%)]"
                           : "bg-[hsl(0,100%,100%)]"
-                      } px-6 py-1 rounded-[2px] text-sm cursor-pointer`}
+                      } px-6 py-1 rounded-[2px] text-sm cursor-pointer shadow`}
                     >
                       {country?.name}
                     </div>

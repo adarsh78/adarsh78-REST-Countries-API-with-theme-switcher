@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <>
-    <div className={`${theme === "dark" ? "bg-[hsl(207,26%,17%)]" : "bg-[hsl(0,0%,99%)]"}`}>
+    <div className={`${theme === "dark" ? "bg-[hsl(207,26%,17%)]" : "bg-[hsl(0,0%,99%)]"} min-h-screen`}>
       <Header />
       <Outlet />
     </div>
